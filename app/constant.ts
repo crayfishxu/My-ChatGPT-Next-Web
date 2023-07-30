@@ -52,7 +52,7 @@ export const EXPORT_MESSAGE_CLASS_NAME = "export-markdown";
 export const OpenaiPath = {
   ChatPath: "v1/chat/completions",
   UsagePath: "dashboard/billing/usage",
-  SubsPath: "dashboard/billing/subscription",
+  SubsPath: "dashboard/billing/credit_grants",
   ListModelPath: "v1/models",
 };
 
