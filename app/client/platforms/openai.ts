@@ -227,7 +227,7 @@ export class ChatGPTApi implements LLMApi {
     };
 
     const total = (await subs.json()) as {
-      hard_limit_usd?: number;
+      total_granted?: number;
     };
 
     if (response.error && response.error.type) {
@@ -238,13 +238,13 @@ export class ChatGPTApi implements LLMApi {
       response.total_usage = Math.round(response.total_usage) / 100;
     }
 
-    if (total.hard_limit_usd) {
-      total.hard_limit_usd = Math.round(total.hard_limit_usd * 100) / 100;
+    if (total.total_granted) {
+      total.total_granted = Math.round(total.total_granted * 100) / 100;
     }
 
     return {
       used: response.total_usage,
-      total: total.hard_limit_usd,
+      total: total.total_granted,
     } as LLMUsage;
   }
 
